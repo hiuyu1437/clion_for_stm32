@@ -97,10 +97,10 @@ const osThreadAttr_t LedBlinkGreen_attributes = {
 
 void StartDefaultTask(void *argument);
 extern void vLedBlinkWhite(void *argument);
-void vLedBlinkYellow(void *argument);
-void vLedBlinkBlue(void *argument);
-void vLedBlinkRed(void *argument);
-void vLedBlinkGreen(void *argument);
+extern void vLedBlinkYellow(void *argument);
+extern void vLedBlinkBlue(void *argument);
+extern void vLedBlinkRed(void *argument);
+extern void vLedBlinkGreen(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -192,78 +192,6 @@ void StartDefaultTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
-}
-
-/* USER CODE BEGIN Header_vLedBlinkYellow */
-/**
-* @brief Function implementing the LedBlinkYellow thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_vLedBlinkYellow */
-void vLedBlinkYellow(void *argument)
-{
-  /* USER CODE BEGIN vLedBlinkYellow */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END vLedBlinkYellow */
-}
-
-/* USER CODE BEGIN Header_vLedBlinkBlue */
-/**
-* @brief Function implementing the LedBlinkBlue thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_vLedBlinkBlue */
-void vLedBlinkBlue(void *argument)
-{
-  /* USER CODE BEGIN vLedBlinkBlue */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END vLedBlinkBlue */
-}
-
-/* USER CODE BEGIN Header_vLedBlinkRed */
-/**
-* @brief Function implementing the LedBlinkRed thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_vLedBlinkRed */
-void vLedBlinkRed(void *argument)
-{
-  /* USER CODE BEGIN vLedBlinkRed */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END vLedBlinkRed */
-}
-
-/* USER CODE BEGIN Header_vLedBlinkGreen */
-/**
-* @brief Function implementing the LedBlinkGreen thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_vLedBlinkGreen */
-void vLedBlinkGreen(void *argument)
-{
-  /* USER CODE BEGIN vLedBlinkGreen */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END vLedBlinkGreen */
 }
 
 /* Private application code --------------------------------------------------*/
