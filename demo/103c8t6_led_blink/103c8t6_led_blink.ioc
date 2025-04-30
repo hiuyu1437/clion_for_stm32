@@ -2,8 +2,9 @@
 CAD.formats=
 CAD.pinconfig=
 CAD.provider=
-FREERTOS.IPParameters=Tasks01,configGENERATE_RUN_TIME_STATS,configRECORD_STACK_HIGH_ADDRESS,configMINIMAL_STACK_SIZE
-FREERTOS.Tasks01=defaultTask,24,128,StartDefaultTask,Default,NULL,Dynamic,NULL,NULL
+FREERTOS.FootprintOK=true
+FREERTOS.IPParameters=Tasks01,configGENERATE_RUN_TIME_STATS,configRECORD_STACK_HIGH_ADDRESS,configMINIMAL_STACK_SIZE,FootprintOK
+FREERTOS.Tasks01=defaultTask,24,64,StartDefaultTask,Default,NULL,Dynamic,NULL,NULL;LedBlinkWhite,24,64,vLedBlinkWhite,As external,NULL,Dynamic,NULL,NULL;LedBlinkYellow,24,64,vLedBlinkYellow,Default,NULL,Dynamic,NULL,NULL;LedBlinkBlue,24,64,vLedBlinkBlue,Default,NULL,Dynamic,NULL,NULL;LedBlinkRed,24,64,vLedBlinkRed,Default,NULL,Dynamic,NULL,NULL;LedBlinkGreen,24,64,vLedBlinkGreen,Default,NULL,Dynamic,NULL,NULL
 FREERTOS.configGENERATE_RUN_TIME_STATS=1
 FREERTOS.configMINIMAL_STACK_SIZE=64
 FREERTOS.configRECORD_STACK_HIGH_ADDRESS=1
