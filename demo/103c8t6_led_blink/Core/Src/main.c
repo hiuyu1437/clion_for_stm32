@@ -32,8 +32,7 @@
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
+/* USER CODE BEGIN PD */#define FREQUENCY_TO_MS(x) (1000 / (x))
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -107,12 +106,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_GPIO_TogglePin(LED_WHITE_GPIO_Port, LED_WHITE_Pin);
-    HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
-    HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
-    HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-    HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
-    HAL_Delay(500);
+    // HAL_GPIO_TogglePin(LED_WHITE_GPIO_Port, LED_WHITE_Pin);
+    // HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+    // HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
+    // HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+    // HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+    // HAL_Delay(500);
 
     /* USER CODE END WHILE */
 
@@ -161,7 +160,95 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+/**
+ * @brief 以 10 Hz 的频率闪烁白色 LED
+ * @param pvParameters
+ */
+void vLedBlinkWhite(void* pvParameters)
+{
+  UNUSED(pvParameters);
 
+  TickType_t last_wake_time = xTaskGetTickCount();
+
+  while (1)
+  {
+    HAL_GPIO_TogglePin(LED_WHITE_GPIO_Port, LED_WHITE_Pin);
+
+    vTaskDelayUntil(&last_wake_time, pdMS_TO_TICKS(FREQUENCY_TO_MS(10)));
+  }
+}
+
+/**
+ * @brief 以 20 Hz 的频率闪烁黄色 LED
+ * @param pvParameters
+ */
+void vLedBlinkYellow(void* pvParameters)
+{
+  UNUSED(pvParameters);
+
+  TickType_t last_wake_time = xTaskGetTickCount();
+
+  while (1)
+  {
+    HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+
+    vTaskDelayUntil(&last_wake_time, pdMS_TO_TICKS(FREQUENCY_TO_MS(20)));
+  }
+}
+
+/**
+ * @brief 以 30 Hz 频率闪烁蓝色 LED
+ * @param pvParameters
+ */
+void vLedBlinkBlue(void* pvParameters)
+{
+  UNUSED(pvParameters);
+
+  TickType_t last_wake_time = xTaskGetTickCount();
+
+  while (1)
+  {
+    HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
+
+    vTaskDelayUntil(&last_wake_time, pdMS_TO_TICKS(FREQUENCY_TO_MS(30)));
+  }
+}
+
+/**
+ * @brief 以 40 Hz 频率闪烁红色 LED
+ * @param pvParameters
+ */
+void vLedBlinkRed(void* pvParameters)
+{
+  UNUSED(pvParameters);
+
+  TickType_t last_wake_time = xTaskGetTickCount();
+
+  while (1)
+  {
+    HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+
+    vTaskDelayUntil(&last_wake_time, pdMS_TO_TICKS(FREQUENCY_TO_MS(40)));
+  }
+}
+
+/**
+ * @brief 以 50 Hz 频率闪烁绿色 LED
+ * @param pvParameters
+ */
+void vLedBlinkGreen(void* pvParameters)
+{
+  UNUSED(pvParameters);
+
+  TickType_t last_wake_time = xTaskGetTickCount();
+
+  while (1)
+  {
+    HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+
+    vTaskDelayUntil(&last_wake_time, pdMS_TO_TICKS(FREQUENCY_TO_MS(50)));
+  }
+}
 /* USER CODE END 4 */
 
 /**
