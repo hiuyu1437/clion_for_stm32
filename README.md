@@ -131,7 +131,6 @@ CLion 集成的是面向 `x86`/`x64` 体系架构的原生 Windows 编译器（�
 + C 编译器：`D:\ProgramData\ST\STM32CubeCLT\GNU-tools-for-STM32\bin\arm-none-eabi-gcc.exe`
 + C++ 编译器：`D:\ProgramData\ST\STM32CubeCLT\GNU-tools-for-STM32\bin\arm-none-eabi-g++.exe`
 + 调试器：`D:\ProgramData\ST\STM32CubeCLT\GNU-tools-for-STM32\bin\arm-none-eabi-gdb.exe`
-<<<<<<< HEAD
 
 > [!note]
 >
