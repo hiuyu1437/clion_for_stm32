@@ -235,5 +235,31 @@ STM32CubeProgrammer 是 ST 官方提供的跨平台烧录工具（支持 Windows
 
 将调试服务器从 `Native` 切换到 `ST-LINK` 之后，便可直接烧录和调试。调试服务器的输出可以通过右端工具栏中的**服务**选项查看，通过输出信息我们可以看出这里正是使用了我们配置的 STM32CubeProgrammer。
 
+#### JLINKGDBServer
 
+CLion 的调试服务器也支持 JLINKGDBServer。配置 JLINKGDBServer 与配置 STM32CubeProgrammer 没有太大差别，唯一的不同便是需要手动指定芯片的型号，如下图所示：
+
+![Debugger Server J-LINK](./figures/debugger_server_jlink.png)
+
+关于 J-LINK，本教程最想要介绍的便是如何将最常见的 MINI ST-LINK V2 通过刷固件的方式转换为 J-LINK，从而可以使用 J-LINK 系列的软件。
+
+##### 如何将 MINI ST-LINK V2 转换为 J-LINK
+
+此方法来源于 SEGGER J-LINK 官方，详情请参考：[**ST-LINK on-board** Converting ST-LINK On-Board Into a J-Link](https://www.segger.com/products/debug-probes/j-link/models/other-j-links/st-link-on-board/)。
+
+虽然文中提到的 ST-LINK on-board 与笔者这里所说的 MINI ST-LINK V2 看起来似乎不是一个东西，但经过实测，这两个应该是说的一回事。
+
+笔者这里使用的 MINI ST-LINK V2 即是国内 TB 和 PDD 最常见的 ST-LINK，如下图所示：
+
+![ST-LINK](./figures/stlink.jpg)
+
+但是如果使用 SEGGER 官方提供的 [SEGGER STLinkReflash](https://www.segger.com/downloads/jlink#STLink_Reflash) 工具并不能完成笔者使用这种 ST-LINK 的刷写，需要对官方工具进行一些修改，具体信息请参考：[jamesy0ung/**Convert ST-Link clone to J-Link**](https://gist.github.com/jamesy0ung/919ef51fea4631e9dfe0bd26dc85c8f0)。
+
+在使用修改后的 SEGGER STLinkReflash 之前，你需要先确认你的 MINI ST-LINK V2 的 MCU 不是 STM32F103C8T6。因为这款 MCU 的Flash 太小了，似乎换成 STM32F103C8B6 就行，它跟 C8T6 唯一的区别就是 Flash 有 128 KB。
+
+笔者这款 MINI ST-LINK V2 的 MCU 为 APM32S103CBT6，如下图所示。还有的 ST-LINK 使用的 GD32 的芯片，只要不是 C8T6，应该都能行。
+
+![ST-LINK MCU](./figures/stlink_mcu.jpg)
+
+同时，刷固件之前，你需要确保 ST-LINK 能够连接上电脑，可以打开**设备管理器**查看，如果显示为**未知 USB 设备（设备描述符请求失败）**，那么应该是 ST-LINK 坏了，需要更换。
 
