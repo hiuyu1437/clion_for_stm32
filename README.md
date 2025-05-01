@@ -93,3 +93,45 @@ flowchart LR
 >
 > 注意：笔者这里 CLion 的安装路径虽然是 `CLion 2024.3.4`，这并不意味着笔者使用的是 2024.3.4 版本的 CLion，这只是因为笔者第一次安装 CLion 的时候 CLion 的版本是 2024.3.4。笔者在使用软件的过程中，对软件进行了更新，现在是最新版的。
 
+## 编译烧录
+
+### 编译
+
+CLion 集成的是面向 `x86`/`x64` 体系架构的原生 Windows 编译器（如 MinGW 的 `gcc`/`g++` 或 MSVC），这类编译器主要用于生成运行在基于 `x86` 或 `x86_64` 架构的普通 Windows 应用程序。
+
+而 STM32 是基于 Arm Cortex-M 系列处理器（ARMv6/ARMv7/ARMv8-M 架构）的嵌入式设备，其程序需通过 ARM 交叉工具链（如 `arm-none-eabi-gcc`）编译成 ARM 指令集的机器码。
+
+> [!note]
+>
+> **交叉编译**是指在某个系统平台下产生另一个系统平台的可执行文件的过程。
+>
+> 如果你想要了解更多关于交叉编译的信息，可以访问：[Cross compiler](https://en.wikipedia.org/wiki/Cross_compiler)。
+
+二者的指令集不同，因此必须针对目标硬件平台配置专用的交叉编译工具链才能完成编译。
+
+在安装的 STM32CubeCLT 工具中，已经包含了 `arm-none-eabi-` 系列交叉工具，如下图所示：
+
+![STM32CubeCLT](./figures/stm32cubeclt.png)
+
+接下来需要做的便是在 CLion 中集成这个交叉编译工具链。
+
+打开 CLion，按照如下路径访问：设置 $\rightarrow$ 构建、执行、部署 $\rightarrow$ 工具链，如下图所示
+
+![CLion Toolchain](./figures/clion_toolchain.png)
+
+点击加号 `+` 新建工具链配置，选择**系统**，按照要求进行配置，如下图所示：
+
+![CLion Toolchain STM32CubeCLT](./figures/clion_toolchain_stm32cubeclt.png)
+
+这里列出笔者的配置（与上图一致，方便读者阅读和复制）,供大家参考：
+
++ 名称：STM32CubeCLT
++ CMake：`D:\ProgramData\ST\STM32CubeCLT\CMake\bin\cmake.exe`
++ 构建工具：`D:\ProgramData\ST\STM32CubeCLT\Ninja\bin\ninja.exe`
++ C 编译器：`D:\ProgramData\ST\STM32CubeCLT\GNU-tools-for-STM32\bin\arm-none-eabi-gcc.exe`
++ C++ 编译器：`D:\ProgramData\ST\STM32CubeCLT\GNU-tools-for-STM32\bin\arm-none-eabi-g++.exe`
++ 调试器：`D:\ProgramData\ST\STM32CubeCLT\GNU-tools-for-STM32\bin\arm-none-eabi-gdb.exe`
+
+> [!note]
+>
+> 工具链配置中，最顶端的配置即为默认配置，笔者主要使用 CLion 开发 STM32 项目，所以将 STM32CubeCLT 配置放在了最顶端作为默认配置。
