@@ -30,7 +30,7 @@
 | CLion        | CLion 2025.1 CL-251.23774.442 April 15, 2025 |
 | STM32CubeCLT | Win 1.18.0                                   |
 | STM32CubeMX  | MX.6.14.1                                    |
-| OpenOCD      | 20240916                                     |
+| OpenOCD      | 20240916stm32                                |
 
 ## 简介
 
@@ -263,3 +263,76 @@ CLion 的调试服务器也支持 JLINKGDBServer。配置 JLINKGDBServer 与配�
 
 同时，刷固件之前，你需要确保 ST-LINK 能够连接上电脑，可以打开**设备管理器**查看，如果显示为**未知 USB 设备（设备描述符请求失败）**，那么应该是 ST-LINK 坏了，需要更换。
 
+## 调试定位
+
+其实在前面的配置中，已经配置好了与调试有关的配置。也就是说，到这一步，已经可以正常进行调试了。
+
+但是细心的读者可能已经发现了，在设置工具链时，我们设置了**调试器**为 `arm-none-eabi-gdb`，但是在后面配置的时候，所有与调试器有关的选项笔者都保持了默认，即 CLion 捆绑的 GDB。笔者在前面说到 CLion 默认工具链的与 STM32 所需的工具链并不相同，那为什么调试器却可以选择 CLion 默认的 GDB？
+
+这是因为 CLion 绑定的 GDB 支持多架构的调试：
+
+> CLion's bundled GDB, which is used as a client debugger by default, is built with **multiarch** support, which makes it suitable for remote cross-platform debug in various Linux/Windows/macOS and embedded cases. Find the full list of the supported targets below.          -- [The Remote Debug configuration](https://www.jetbrains.com/help/clion/remote-debug.html)
+
+可以通过 GDB 命令验证 CLion 的 GDB 是否是多架构的：
+
+```shell
+(gdb) set architecture
+Requires an argument. Valid arguments are ARC600, A6, ARC601, ARC700, A7, ARCv2, EM, HS, arm, armv2, ..., riscv:rv32, tilegx, tilegx32, auto.
+```
+
+为了方便读者阅读，笔者省略了大部分的架构，感兴趣的读者可以自行验证。
+
+同时，不选择使用 `arm-none-eabi-gdb` 还有另外一个更重要的原因，那就是 CLion 对 **FreeRTOS**、Azure RTOS 和 Zephyr 的集成。
+
+按照以下路径访问：设置 $\rightarrow$ 构建、执行、部署 $\rightarrow$ 嵌入式开发 $\rightarrow$ RTOS 集成，选择启动 RTOS 集成，如下图所示：
+
+![ROTS Integrated](./figures/rtos_integrated.png)
+
+启用后，再开启调试，便可看到与 RTOS 有关的信息，如下图所示：
+
+![FreeRTOS Debug](./figures/freertos_debug.png)
+
+如果读者并没有看到相关信息，则需要在 STM32CubeMX 中对 FreeRTOS 作出一些额外的配置，如下表所示：
+
+| 条目                              | 值              |
+| --------------------------------- | --------------- |
+| `configUSE_TRACE_FACILITY`        | `1` 或 `Enable` |
+| `configMAX_TASK_NAME_LEN`         | 大于 `0` 即可   |
+| `configRECORD_STACK_HIGH_ADDRESS` | `1` 或 `Enable` |
+| `configGENERATE_RUN_TIME_STATS`   | 1 或 `Enable`   |
+| `configQUEUE_REGISTRY_SIZE`       | 大于 0 即可     |
+
+又回到最开始的问题，为什么不使用 `arm-none-eabi-gdb`？可以在调试服务器中切换调试器，如下图所示：
+
+![debug server arm gbd](./figures/debug_server_arm_gdb.png)
+
+再次开启调试，可以发现这次并没有与 FreeRTOS 有关的信息出现，同时界面报错，如下图所示：
+
+![arm gbd rtos error](./figures/arm_gdb_rtos_error.png)
+
+这是因为 CLion 对 FreeRTOS 的支持需要 GDB 支持 Python：
+
+> Note that RTOS integration requires GDB 7.4 or later with Python support.
+>
+> You can use CLion's bundled GDB for that, refer to [Switching between the debuggers](https://www.jetbrains.com/help/clion/configuring-debugger-options.html#select-debugger).
+>
+> ​          -- [Multi-threaded RTOS debug](https://www.jetbrains.com/help/clion/rtos-debug.html)
+
+而 STM32CubeCLT 中包含的 `arm-none-eabi-gdb` 并不支持 Python，可以通过 `show configuration` 查看配置信息，如下所示：
+```shell
+(gdb) show configuration
+This GDB was configured as follows:
+   configure --host=x86_64-w64-mingw32 --target=arm-none-eabi
+		 ...
+	     --without-python
+	     --without-python-libdir
+		 ...
+	     --with-system-gdbinit=/build/gnu-tools-for-stm32_13.3.rel1.20240926-1715/install-mingw/x86_64-w64-mingw32/arm-none-eabi/lib/gdbinit (relocatable)
+
+("Relocatable" means the directory can be moved with the GDB installation
+tree, and GDB will still find it.)
+
+```
+
+为了方便读者阅读，笔者在这里省略了大部分的信息，感兴趣的读者可以自行尝试。
+可以看到 `arm-none-eabi-gdb` 并不支持 Python，所以也就无法支持 FreeRTOS 等 RTOS 的集成。
