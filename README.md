@@ -160,7 +160,7 @@ Memory region         Used Size  Region Size  %age Used
 
 ### 烧录
 
-在完成代码的编译后，接下来的关键步骤就是将生成的可执行文件（如 `.hex`、`bin` 或 `.elf`）烧录到 STM32 芯片的 Flash 存储器中。与传统嵌入式 IDE（如 Keil）不同，CLion 本身并不直接集成烧录功能，而是通过外部工具（如 OpenOCD、STM32CubeProgrammer 或 JLlinkGBDServer）实现烧录。
+在完成代码的编译后，接下来的关键步骤就是将生成的可执行文件（如 `.hex`、`bin` 或 `.elf`）烧录到 STM32 芯片的 Flash 存储器中。与传统嵌入式 IDE（如 Keil）不同，CLion 本身并不直接集成烧录功能，而是通过外部工具（如 OpenOCD、STM32CubeProgrammer 或 JLlinkGDBServer）实现烧录。
 
 笔者将对这三种工具的配置进行讲解，读者可自行尝试，然后根据自己的需求选择对应的烧录方式。
 
