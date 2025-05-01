@@ -32,7 +32,8 @@
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */#define FREQUENCY_TO_MS(x) (1000 / (x))
+/* USER CODE BEGIN PD */
+#define FREQUENCY_TO_MS(frequency) (1000 / frequency)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -264,7 +265,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM1) {
+  if (htim->Instance == TIM1)
+  {
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
