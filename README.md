@@ -74,6 +74,7 @@ flowchart LR
 + STM32CubeMX：[https://www.st.com/en/development-tools/stm32cubemx.html](https://www.st.com/en/development-tools/stm32cubemx.html)
 + STM32CubeCLT：[https://www.st.com/en/development-tools/stm32cubeclt.html](https://www.st.com/en/development-tools/stm32cubeclt.html)
 + OpenOCD：[https://gnutoolchains.com/arm-eabi/openocd/](https://gnutoolchains.com/arm-eabi/openocd/)
++ SEGGE J-Link：[https://www.segger.com/downloads/jlink/](https://www.segger.com/downloads/jlink/)
 
 请读者自行下载安装。
 
