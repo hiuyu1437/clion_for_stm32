@@ -30,6 +30,7 @@
 | CLion        | CLion 2025.1 CL-251.23774.442 April 15, 2025 |
 | STM32CubeCLT | Win 1.18.0                                   |
 | STM32CubeMX  | MX.6.14.1                                    |
+| OpenOCD      | 20240916                                     |
 
 ## 简介
 
