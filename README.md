@@ -336,3 +336,20 @@ tree, and GDB will still find it.)
 
 为了方便读者阅读，笔者在这里省略了大部分的信息，感兴趣的读者可以自行尝试。
 可以看到 `arm-none-eabi-gdb` 并不支持 Python，所以也就无法支持 FreeRTOS 等 RTOS 的集成。
+
+## 参考资料
+
+笔者在这里列举出编写本篇教程所使用的全部参考资料，欢迎读者批评指正，参考资料无先后顺序：
+
++ [稚晖君：配置CLion用于STM32开发【优雅の嵌入式开发】](https://zhuanlan.zhihu.com/p/145801160)
+
++ [【科普】【FAQ】MinGW vs MinGW-W64 及其它](https://github.com/FrankHB/pl-docs/blob/master/zh-CN/mingw-vs-mingw-v64.md)
+
++ [Embedded development](https://www.jetbrains.com/help/clion/embedded-overview.html)
+
++ [jamesy0ung/**Convert ST-Link clone to J-Link**](https://gist.github.com/jamesy0ung/919ef51fea4631e9dfe0bd26dc85c8f0)
+
++ [What's New in CLion 2025.1](https://www.jetbrains.com/clion/whatsnew/)
+
++ [**ST-LINK on-board** Converting ST-LINK On-Board Into a J-Link](https://www.segger.com/products/debug-probes/j-link/models/other-j-links/st-link-on-board/)
+
