@@ -31,5 +31,14 @@
 | STM32CubeCLT | Win 1.18.0                                   |
 | STM32CubeMX  | MX.6.14.1                                    |
 
+## 简介
+
+本教程为将 CLion 配置成开发 STM32 IDE 详细步骤，通过本教程，你可以学习到如下知识：
+
++ 配置 OpenOCD 烧录下载代码
++ 配置 ST-LINK 调试代码
++ 将 MINI ST-LINK V2 转为 ST-LINK
++ 配置 J-LINK 调试代码
+
 
 
