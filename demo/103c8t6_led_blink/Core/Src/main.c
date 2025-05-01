@@ -33,6 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define FREQUENCY_TO_MS(frequency) (1000 / frequency)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
