@@ -64,5 +64,31 @@ flowchart LR
 
 每一个步骤都有相应的软件支持，但我们真正需要的正是一个将这些所有功能集成到一起的 IDE，这样才能简化我们的开发流程。由于 CLion 已经集成了 STM32CubeMX，同时 CLion 本身就是编写代码的 IDE，所以本教程着重从**烧录下载**和**调试纠错**两个方面对 CLion 配置进行讲解。
 
+## 软件下载安装
 
+这里仅给出所需软件的官方下载链接：
+
++ CLion：[https://www.jetbrains.com/clion/download/#section=windows](https://www.jetbrains.com/clion/download/#section=windows)
++ STM32CubeMX：[https://www.st.com/en/development-tools/stm32cubemx.html](https://www.st.com/en/development-tools/stm32cubemx.html)
++ STM32CubeCLT：[https://www.st.com/en/development-tools/stm32cubeclt.html](https://www.st.com/en/development-tools/stm32cubeclt.html)
++ OpenOCD：[https://gnutoolchains.com/arm-eabi/openocd/](https://gnutoolchains.com/arm-eabi/openocd/)
+
+请读者自行下载安装。
+
+> [!warning]
+>
+> 所有软件的安装路径不要出现中文。除 CLion 外，其余软件安装路径不能出现中文、空格以及特殊符号。
+>
+> 因为 CLion 是通过命令行的方式调用其他工具，所以如果路径中出现了中文、空格以及特殊符号，就会导致命令出错。
+
+在这里列出笔者所装软件的路径，以供读者参考：
+
++ CLion：`D:\Program Files\JetBrains\CLion 2024.3.4`
++ STM32CubeMX：`D:\AppData\Local\Programs\STM32CubeMX`
++ STM32CubeCLT：`D:\ProgramData\ST\STM32CubeCLT`
++ OpenOCD：`D:\ProgramData\OpenOCD`
+
+> [!note]
+>
+> 注意：笔者这里 CLion 的安装路径虽然是 `CLion 2024.3.4`，这并不意味着笔者使用的是 2024.3.4 版本的 CLion，这只是因为笔者第一次安装 CLion 的时候 CLion 的版本是 2024.3.4。笔者在使用软件的过程中，对软件进行了更新，现在是最新版的。
 
