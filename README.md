@@ -89,10 +89,16 @@ flowchart LR
 + STM32CubeMX：`D:\AppData\Local\Programs\STM32CubeMX`
 + STM32CubeCLT：`D:\ProgramData\ST\STM32CubeCLT`
 + OpenOCD：`D:\ProgramData\OpenOCD`
++ SEGGER J-Link：`D:\Program Files\SEGGER\JLink`
 
 > [!note]
 >
 > 注意：笔者这里 CLion 的安装路径虽然是 `CLion 2024.3.4`，这并不意味着笔者使用的是 2024.3.4 版本的 CLion，这只是因为笔者第一次安装 CLion 的时候 CLion 的版本是 2024.3.4。笔者在使用软件的过程中，对软件进行了更新，现在是最新版的。
+
+> [!important]
+>
+> 在安装 SEGGER J-Link 系列软件时，笔者建议选择 `Update existing installation` 进行安装。`Update existing installation` 和 `Install a new instance` 的区别如下图所示：
+> ![SEGGER J-Link Install](./figures/jlink_install.png)
 
 ## 编译烧录
 
