@@ -137,3 +137,27 @@ CLion 集成的是面向 `x86`/`x64` 体系架构的原生 Windows 编译器（�
 >
 > 工具链配置中，最顶端的配置即为默认配置，笔者主要使用 CLion 开发 STM32 项目，所以将 STM32CubeCLT 配置放在了最顶端作为默认配置。
 
+#### 编译测试
+
+配置完成后，使用 CLion 打开演示例程 `demo/103c8t6_led_blink` 进行编译，编译成功的输出如下所示：
+
+```shell
+====================[ 构建 | 103c8t6_led_blink | Debug ]==========================
+D:\ProgramData\ST\STM32CubeCLT\CMake\bin\cmake.exe --build E:\Downloads\GitRepo\Github\Others\clion_for_stm32\demo\103c8t6_led_blink\cmake-build-debug --target 103c8t6_led_blink -j 14
+[1/34] Building C object CMakeFiles/103c8t6_led_blink.dir/Core/Src/main.c.obj
+...
+[34/34] Linking C executable 103c8t6_led_blink.elf
+D:/ProgramData/ST/STM32CubeCLT/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: 103c8t6_led_blink.elf has a LOAD segment with RWX permissions
+Memory region         Used Size  Region Size  %age Used
+             RAM:       14584 B        20 KB     71.21%
+           FLASH:       18124 B        64 KB     27.66%
+
+构建 已完成
+```
+
+这里笔者为了方便读者阅读，省略了中间大段的编译信息。
+
+如果读者编译失败，欢迎提出 [Issue](https://github.com/bfmhno3/clion_for_stm32/issues)，笔者会及时跟进解决。
+
+
+
