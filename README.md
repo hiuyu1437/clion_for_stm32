@@ -233,5 +233,7 @@ STM32CubeProgrammer 是 ST 官方提供的跨平台烧录工具（支持 Windows
 
 ![Debugger Native ST-LINK](./figures/debugger_native_stlink.png)
 
-将调试服务器从 `Native` 切换到 `ST-LINK` 之后，便可直接对烧录和调试。调试服务器的输出可以通过右端工具栏中的**服务**选项查看，通过输出信息我们可以看出这里正是使用了我们配置的 STM32CubeProgrammer。
+将调试服务器从 `Native` 切换到 `ST-LINK` 之后，便可直接烧录和调试。调试服务器的输出可以通过右端工具栏中的**服务**选项查看，通过输出信息我们可以看出这里正是使用了我们配置的 STM32CubeProgrammer。
+
+
 
