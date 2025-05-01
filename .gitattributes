@@ -1,0 +1,2 @@
+packages/JLink_Windows_V830_x86_64.exe filter=lfs diff=lfs merge=lfs -text
+packages/en.st-stm32cubeclt_1.18.0_24403_20250225_1636_x86_64.exe.zip filter=lfs diff=lfs merge=lfs -text
